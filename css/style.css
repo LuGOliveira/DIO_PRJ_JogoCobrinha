@@ -6,5 +6,27 @@ body{
     align-items: center;
     flex-direction: column;
     background-color: black;
-    color: purple;
+    color: rgb(155, 18, 18);
+    font: 20px arial, verdana;
+}
+
+bg-titulo
+
+
+.bg-footer{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.navbar-brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color:rgb(155, 18, 18);    
+}
+
+.margin{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

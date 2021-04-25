@@ -9,6 +9,7 @@ snake[0] = {
 }
 
 let direction = "right";
+
 let score = 0;
 
 let comida = {
@@ -32,7 +33,7 @@ function criarCobrinha(){
 }
 
 function criarComida(){
-    context.fillStyle = "purple";
+    context.fillStyle = "rgb(155, 18, 18)";    
     context.fillRect(comida.x, comida.y, box, box)
 }
 
@@ -47,10 +48,9 @@ function update(event){
         var sair = confirm("Deseja sair do jogo?");
         if(sair == true){
             clearInterval(jogo);            
-            alert("Vocë fez "+ score + " pontos. \n Até a próxima! :) ");
+            alert("Até a próxima! :) ");
         }
-    }
-    
+    }    
     //Identifica a direção acionada
     if(event.keyCode == 37 && direction != "right") direction = "left";
     if(event.keyCode == 38 && direction != "down") direction = "up";
@@ -59,6 +59,8 @@ function update(event){
 }
 
 function iniciarJogo(){
+
+    /*setScore(0)*/
 
     //Define os limites dentro do background, recomeçando do lado oposto
     if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
@@ -70,7 +72,7 @@ function iniciarJogo(){
     for(i = 1; i < snake.length; i++){
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
             clearInterval(jogo);
-            alert("Game over! :( \nVocê fez " + score + " pontos.");
+            alert("Game over! :( ");
         }
 
     }
@@ -101,7 +103,10 @@ function iniciarJogo(){
     else {
         comida.x = Math.floor(Math.random() * 15 + 1) * box;
         comida.y = Math.floor(Math.random() * 15 + 1) * box;
+
+        //Atualiza o score
         score = score + 1;
+        document.getElementById('score').innerHTML = score;
     }
 
     //Cria a cabeça na nova posiçao na qual a cobrinha está se movimentando.
